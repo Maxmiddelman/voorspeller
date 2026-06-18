@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: enersim-tft-api
+    env: python
+    plan: standard
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: MODEL_BUCKET
+        value: forecast-models
+      - key: DEFAULT_TIMEZONE
+        value: Europe/Amsterdam
+      - key: ENCODER_LENGTH
+        value: 672
+      - key: FORECAST_HORIZON
+        value: 96
+      - key: MAX_EPOCHS
+        value: 40
+      - key: BATCH_SIZE
+        value: 128
