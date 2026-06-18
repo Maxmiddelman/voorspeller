@@ -103,7 +103,7 @@ def make_dataset(df: pd.DataFrame) -> TimeSeriesDataSet:
         add_relative_time_idx=True,
         add_target_scales=True,
         add_encoder_length=True,
-        allow_missing_timesteps=False,
+        allow_missing_timesteps=True,
     )
 
 
